@@ -4,52 +4,71 @@ on:
   push:
     branches:
       - main
-      - feature/**
   pull_request:
     branches:
       - main
 
 jobs:
-  build-and-lint:
+  build-test-lint:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Use Node.js 22.x
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version-file: '.nvmrc'
           cache: 'npm'
 
-      - name: Install root dev dependencies (ESLint, Prettier, etc.)
-        run: |
-          npm install
-
-      - name: Install & build game-engine
+      # ----------------- GAME ENGINE -----------------
+      - name: Install dependencies (game-engine)
         working-directory: game-engine
-        run: |
-          npm install
-          npm run build
+        run: npm install
 
-      - name: Run test for game-engine
+      - name: Build game-engine
         working-directory: game-engine
-        run: |
-          npm test
+        run: npm run build
 
-      - name: Install & build server
+      - name: Run tests (game-engine) with coverage
+        working-directory: game-engine
+        run: npm run test:ci
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: game-engine/coverage/lcov.info
+          flags: game-engine
+          fail_ci_if_error: true
+
+      - name: Lint game-engine (if available)
+        working-directory: game-engine
+        run: npm run lint --if-present
+
+      # ----------------- SERVER -----------------
+      - name: Install dependencies (server)
         working-directory: server
-        run: |
-          npm install
-          npm run build
+        run: npm install
 
-      - name: Install & build client
+      - name: Build server
+        working-directory: server
+        run: npm run build
+
+      - name: Lint server (if available)
+        working-directory: server
+        run: npm run lint --if-present
+
+      # ----------------- CLIENT -----------------
+      - name: Install dependencies (client)
         working-directory: client
-        run: |
-          npm install
-          npm run build
+        run: npm install
 
-      - name: Run lint (raíz del repo)
-        run: |
-          npm run lint
+      - name: Build client
+        working-directory: client
+        run: npm run build
+
+      - name: Lint client (if available)
+        working-directory: client
+        run: npm run lint --if-present

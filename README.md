@@ -3,11 +3,11 @@
 ![CI](https://github.com/karolymUXE/unstable-unicorns-online/actions/workflows/ci.yml/badge.svg)
 ![Version](https://img.shields.io/github/v/tag/karolymUXE/unstable-unicorns-online?label=version&color=blue)
 ![License](https://img.shields.io/badge/license-MIT-green?style=flat)
-![Tests](https://img.shields.io/badge/tests-passing-brightgreen?style=flat)
-![Coverage](https://img.shields.io/badge/coverage-0%25-lightgrey?style=flat)
+[![codecov](https://codecov.io/gh/karolymUXE/unstable-unicorns-online/branch/main/graph/badge.svg)](https://codecov.io/gh/karolymUXE/unstable-unicorns-online)
 ![Issues](https://img.shields.io/github/issues/karolymUXE/unstable-unicorns-online?color=yellow)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-purple?style=flat)
 ![Status](https://img.shields.io/badge/status-active-success?style=flat)
+
 
 Juego **multijugador online** inspirado en Unstable Unicorns, construido con arquitectura modular:
 
