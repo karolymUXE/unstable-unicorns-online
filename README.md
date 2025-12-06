@@ -143,14 +143,10 @@ Este proyecto está bajo la licencia **MIT**.
 
 Significa que puedes:
 
-Usarlo
-
-Modificarlo
-
-Distribuirlo
-
-Venderlo
-
+- Usarlo
+- Modificarlo
+- Distribuirlo
+- Venderlo
 Siempre y cuando mantengas la atribución correspondiente.
 
 ````txt
