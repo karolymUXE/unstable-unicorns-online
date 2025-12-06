@@ -14,7 +14,7 @@ export class GameEngine {
    * Devuelve una copia inmutable del estado actual
    */
   public getState(): GameState {
-    return JSON.parse(JSON.stringify(this.state));
+    return this.state;
   }
 
   /**

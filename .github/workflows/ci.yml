@@ -33,6 +33,11 @@ jobs:
           npm install
           npm run build
 
+      - name: Run test for game-engine
+        working-directory: game-engine
+        run: |
+          npm test
+
       - name: Install & build server
         working-directory: server
         run: |
