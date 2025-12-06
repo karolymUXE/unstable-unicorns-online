@@ -1,11 +1,24 @@
 # Unstable Unicorns Online 🦄
 
+![CI](https://github.com/karolymUXE/unstable-unicorns-online/actions/workflows/ci.yml/badge.svg)
+![Version](https://img.shields.io/github/v/tag/karolymUXE/unstable-unicorns-online?label=version&color=blue)
+![License](https://img.shields.io/badge/license-MIT-green?style=flat)
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen?style=flat)
+![Coverage](https://img.shields.io/badge/coverage-0%25-lightgrey?style=flat)
+![Issues](https://img.shields.io/github/issues/karolymUXE/unstable-unicorns-online?color=yellow)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-purple?style=flat)
+![Status](https://img.shields.io/badge/status-active-success?style=flat)
+
 Juego **multijugador online** inspirado en Unstable Unicorns, construido con arquitectura modular:
 
-- 🧠 Motor de juego independiente (`game-engine/`)
-- 🔌 Servidor tiempo real con Socket.io (`server/`)
-- 🎨 Cliente web en React + Vite (`client/`)
-- 🛠️ Pensado para escalar a móvil, escritorio y APIs externas
+- 🔧 Motor de juego modular completamente escrito en TypeScript
+- 🃏 Mazo completo de cartas del juego base
+- 🔄 Soporte para reglas, turnos y estados del juego
+- 🌐 Servidor en tiempo real con Socket.IO
+- 🎨 Cliente en React + Vite
+- ✅ Tests unitarios en el game-engine con Jest
+- 📦 Arquitectura escalable lista para CI/CD
+- 🔒 Configuración para contribuciones seguras (branch protection + PR required)
 
 ---
 
