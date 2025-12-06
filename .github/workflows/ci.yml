@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install root dev dependencies (ESLint, Prettier, etc.)
+        run: |
+          npm install
+
+      - name: Install & build game-engine
+        working-directory: game-engine
+        run: |
+          npm install
+          npm run build
+
+      - name: Install & build server
+        working-directory: server
+        run: |
+          npm install
+          npm run build
+
+      - name: Install & build client
+        working-directory: client
+        run: |
+          npm install
+          npm run build
+
+      - name: Run lint (raíz del repo)
+        run: |
+          npm run lint
